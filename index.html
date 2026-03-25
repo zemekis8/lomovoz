@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="uk" class="noise">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ЛОМОВОЗ — Демонтаж та вивіз сміття у Києві</title>
+  <meta name="description" content="ЛОМОВОЗ — професійний демонтаж, вивіз будівельного сміття, прибирання територій у Києві та області. Від 1000 грн. Працюємо без вихідних.">
+  <meta property="og:title" content="ЛОМОВОЗ — Демонтаж та вивіз сміття у Києві">
+  <meta property="og:description" content="Ламаємо. Пакуємо. Вивозимо. Працюємо без вихідних.">
+  <meta property="og:type" content="website">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-surface text-primary font-body antialiased">
+
+  <!-- ============ HEADER ============ -->
+  <header id="header" class="fixed top-0 left-0 right-0 z-50 bg-surface/0 border-b border-transparent transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 md:h-20 flex items-center justify-between">
+      <a href="#" class="font-display font-bold text-lg md:text-xl text-primary tracking-tight">
+        ЛОМОВОЗ<span class="text-accent">.</span>
+      </a>
+
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#services" class="text-secondary hover:text-primary transition-colors text-sm font-medium">Послуги</a>
+        <a href="#prices" class="text-secondary hover:text-primary transition-colors text-sm font-medium">Ціни</a>
+        <a href="#gallery" class="text-secondary hover:text-primary transition-colors text-sm font-medium">Галерея</a>
+        <a href="#reviews" class="text-secondary hover:text-primary transition-colors text-sm font-medium">Відгуки</a>
+        <a href="#contacts" class="text-secondary hover:text-primary transition-colors text-sm font-medium">Контакти</a>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="tel:+380500290952" class="hidden md:inline-flex items-center gap-2 bg-accent hover:bg-accent-bright text-surface font-semibold text-sm px-5 py-2.5 rounded-full transition-colors">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Зателефонувати
+        </a>
+        <button id="menu-toggle" class="md:hidden w-10 h-10 flex items-center justify-center text-primary" aria-label="Відкрити меню">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ============ MOBILE MENU ============ -->
+  <div id="mobile-overlay" class="fixed inset-0 z-[60] bg-black/60 backdrop-blur-sm mobile-overlay pointer-events-none opacity-0">
+    <div id="mobile-drawer" class="absolute right-0 top-0 h-full w-72 bg-card border-l border-border p-6 flex flex-col mobile-drawer" style="transform: translateX(100%)">
+      <button id="menu-close" class="self-end w-10 h-10 flex items-center justify-center text-secondary hover:text-primary mb-8" aria-label="Закрити меню">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+      <div class="flex flex-col gap-6">
+        <a href="#services" class="text-primary text-lg font-medium">Послуги</a>
+        <a href="#prices" class="text-primary text-lg font-medium">Ціни</a>
+        <a href="#gallery" class="text-primary text-lg font-medium">Галерея</a>
+        <a href="#reviews" class="text-primary text-lg font-medium">Відгуки</a>
+        <a href="#contacts" class="text-primary text-lg font-medium">Контакти</a>
+      </div>
+      <div class="mt-auto pt-8 border-t border-border">
+        <a href="tel:+380500290952" class="flex items-center justify-center gap-2 w-full bg-accent hover:bg-accent-bright text-surface font-semibold py-3 rounded-full transition-colors">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          Зателефонувати
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ============ HERO ============ -->
+    <section id="hero" class="hero-bg min-h-screen relative flex items-center overflow-hidden">
+      <div class="absolute top-1/4 right-0 w-[500px] h-[500px] bg-accent/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div class="absolute bottom-0 left-1/4 w-[400px] h-[400px] bg-accent-bright/3 rounded-full blur-[100px] pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 md:pt-0 w-full relative z-10">
+        <div class="max-w-3xl">
+          <p class="text-accent font-display text-xs sm:text-sm font-medium mb-5 tracking-widest uppercase reveal">
+            Київ та Київська область
+          </p>
+          <h1 class="font-display font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.08] mb-6 reveal" style="--delay:1">
+            Демонтаж та вивіз сміття
+            <span class="text-gradient">під ключ</span>
+          </h1>
+          <p class="text-secondary text-base sm:text-lg md:text-xl max-w-xl mb-10 leading-relaxed reveal" style="--delay:2">
+            Ламаємо. Пакуємо. Вивозимо. Працюємо без вихідних&nbsp;&mdash; від&nbsp;заявки до&nbsp;чистого об'єкта за&nbsp;один день.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-16 md:mb-20 reveal" style="--delay:3">
+            <a href="https://t.me/+380500290952" target="_blank" rel="noopener" class="relative inline-flex items-center justify-center gap-2.5 bg-accent hover:bg-accent-bright text-surface font-bold text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-300 pulse-ring">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              Замовити розрахунок
+            </a>
+            <a href="tel:+380500290952" class="inline-flex items-center justify-center gap-2.5 border border-border hover:border-accent/40 text-primary font-semibold text-sm sm:text-base px-7 py-3.5 sm:px-8 sm:py-4 rounded-full transition-all duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Зателефонувати
+            </a>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-6 sm:gap-8 md:gap-10 reveal" style="--delay:4">
+          <div>
+            <span class="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-primary" data-count="7" data-suffix="+">0+</span>
+            <p class="text-secondary text-xs sm:text-sm mt-1">років досвіду</p>
+          </div>
+          <div class="stat-divider hidden sm:block"></div>
+          <div>
+            <span class="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-primary" data-count="2000" data-suffix="+">0+</span>
+            <p class="text-secondary text-xs sm:text-sm mt-1">виконаних замовлень</p>
+          </div>
+          <div class="stat-divider hidden sm:block"></div>
+          <div>
+            <p class="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-accent">від 1000₴</p>
+            <p class="text-secondary text-xs sm:text-sm mt-1">мінімальне замовлення</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICES (Bento Grid) ============ -->
+    <section id="services" class="py-20 md:py-28 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <span class="text-accent font-display text-xs font-medium uppercase tracking-widest reveal">Що ми робимо</span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mt-3 reveal" style="--delay:1">Наші послуги</h2>
+          <p class="text-secondary text-lg mt-4 max-w-2xl mx-auto reveal" style="--delay:2">Повний спектр робіт — від демонтажу стін до вивезення останнього мішка сміття</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
+          <!-- Демонтаж (large) -->
+          <div class="lg:col-span-2 lg:row-span-2 bg-card rounded-2xl border border-accent/20 p-6 md:p-8 lg:p-10 card-hover reveal-scale relative overflow-hidden group" style="--delay:0">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 group-hover:bg-accent/10 transition-colors duration-500"></div>
+            <div class="relative">
+              <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>
+              </div>
+              <h3 class="font-display font-bold text-2xl lg:text-3xl mb-4">Демонтаж</h3>
+              <p class="text-secondary leading-relaxed mb-6 max-w-md">Демонтуємо стіни, перегородки, підлогу, стяжку, фундаменти та цілі будівлі. Працюємо акуратно — без шкоди сусіднім конструкціям.</p>
+              <ul class="space-y-2 text-secondary text-sm">
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Стіни та перегородки</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Підлога, стяжка, плитка</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Вікна, двері, балкони</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Ванні кімнати під ключ</li>
+                <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-accent shrink-0"></span>Будівлі та фундаменти</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Вивіз сміття -->
+          <div class="lg:col-span-2 bg-card rounded-2xl border border-border p-6 md:p-8 card-hover reveal-scale" style="--delay:1">
+            <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mb-6">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-2xl mb-3">Вивіз сміття</h3>
+            <p class="text-secondary leading-relaxed">Вивозимо будівельне, побутове та габаритне сміття. Власний транспорт від Газелі до КамАЗа. Пакуємо в мішки, вантажимо та утилізуємо на ліцензованих полігонах.</p>
+          </div>
+
+          <!-- Прибирання території -->
+          <div class="bg-card rounded-2xl border border-border p-6 md:p-8 card-hover reveal-scale" style="--delay:2">
+            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 14 3 3.3a1 1 0 0 1-.7 1.7H4.7a1 1 0 0 1-.7-1.7L7 14h-.3a1 1 0 0 1-.7-1.7L9 9h-.2A1 1 0 0 1 8 7.3L12 3l4 4.3a1 1 0 0 1-.8 1.7H15l3 3.3a1 1 0 0 1-.7 1.7H17Z"/><path d="M12 22v-3"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-xl mb-2">Прибирання території</h3>
+            <p class="text-secondary text-sm leading-relaxed">Очищуємо ділянки, двори, офісні та промислові території від сміття, листя та хламу.</p>
+          </div>
+
+          <!-- Вантажоперевезення -->
+          <div class="bg-card rounded-2xl border border-border p-6 md:p-8 card-hover reveal-scale" style="--delay:3">
+            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-xl mb-2">Вантажоперевезення</h3>
+            <p class="text-secondary text-sm leading-relaxed">Переїзди квартир та офісів. Перевозимо меблі, техніку, будматеріали по Києву та області.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HOW WE WORK ============ -->
+    <section id="process" class="py-20 md:py-28 lg:py-32 bg-card/50 border-y border-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <span class="text-accent font-display text-xs font-medium uppercase tracking-widest reveal">Простий процес</span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mt-3 reveal" style="--delay:1">Як ми працюємо</h2>
+          <p class="text-secondary text-lg mt-4 max-w-xl mx-auto reveal" style="--delay:2">Три кроки від заявки до чистого об'єкта</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 relative">
+          <div class="hidden md:block absolute top-16 left-[calc(16.67%+1rem)] right-[calc(16.67%+1rem)] h-px bg-gradient-to-r from-accent/40 via-accent to-accent/40"></div>
+
+          <div class="relative text-center reveal" style="--delay:0">
+            <div class="w-12 h-12 rounded-full bg-accent text-surface font-display font-bold text-lg flex items-center justify-center mx-auto mb-6 relative z-10">1</div>
+            <h3 class="font-display font-bold text-xl mb-3">Заявка</h3>
+            <p class="text-secondary leading-relaxed">Зателефонуйте або напишіть у Telegram чи Viber. Опишіть задачу — відповімо за 15 хвилин.</p>
+          </div>
+
+          <div class="relative text-center reveal" style="--delay:1">
+            <div class="w-12 h-12 rounded-full bg-accent text-surface font-display font-bold text-lg flex items-center justify-center mx-auto mb-6 relative z-10">2</div>
+            <h3 class="font-display font-bold text-xl mb-3">Оцінка</h3>
+            <p class="text-secondary leading-relaxed">Безкоштовно виїжджаємо на об'єкт, оцінюємо обсяг і називаємо точну ціну. Без сюрпризів.</p>
+          </div>
+
+          <div class="relative text-center reveal" style="--delay:2">
+            <div class="w-12 h-12 rounded-full bg-accent text-surface font-display font-bold text-lg flex items-center justify-center mx-auto mb-6 relative z-10">3</div>
+            <h3 class="font-display font-bold text-xl mb-3">Виконання</h3>
+            <p class="text-secondary leading-relaxed">Приїжджаємо в обумовлений час, виконуємо роботу, вивозимо сміття. Здаємо чистий об'єкт.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PRICES ============ -->
+    <section id="prices" class="py-20 md:py-28 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <span class="text-accent font-display text-xs font-medium uppercase tracking-widest reveal">Прозорі ціни</span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mt-3 reveal" style="--delay:1">Вартість послуг</h2>
+          <p class="text-secondary text-lg mt-4 max-w-2xl mx-auto reveal" style="--delay:2">Орієнтовні ціни. Точну вартість розрахуємо після огляду об'єкта.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Price card: Вивіз сміття -->
+          <div class="bg-card rounded-2xl border border-border overflow-hidden card-hover reveal" style="--delay:0">
+            <div class="p-6 md:p-8">
+              <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-1">Вивіз сміття</h3>
+              <p class="text-accent font-display font-bold text-3xl md:text-4xl mt-3">від 1 000<span class="text-lg ml-1">₴</span></p>
+              <ul class="mt-6 space-y-3 text-secondary text-sm">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Газель (7-10 м³) — від 1 000 ₴
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  ЗІЛ (до 5 т) — від 2 300 ₴
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  КамАЗ (до 10 т) — від 3 300 ₴
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Послуга вантажників — від 800 ₴
+                </li>
+              </ul>
+            </div>
+            <div class="px-6 md:px-8 pb-6 md:pb-8">
+              <a href="tel:+380500290952" class="flex items-center justify-center gap-2 w-full border border-border hover:border-accent/40 text-primary font-semibold py-3 rounded-full transition-colors text-sm">
+                Дізнатись точну вартість
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Price card: Демонтаж -->
+          <div class="bg-card rounded-2xl border border-accent/30 overflow-hidden card-hover reveal glow-accent" style="--delay:1">
+            <div class="bg-accent text-surface text-center py-2 text-xs font-bold uppercase tracking-wider font-display">Популярне</div>
+            <div class="p-6 md:p-8">
+              <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 12-8.5 8.5c-.83.83-2.17.83-3 0 0 0 0 0 0 0a2.12 2.12 0 0 1 0-3L12 9"/><path d="M17.64 15 22 10.64"/><path d="m20.91 11.7-1.25-1.25c-.6-.6-.93-1.4-.93-2.25v-.86L16.01 4.6a5.56 5.56 0 0 0-3.94-1.64H9l.92.82A6.18 6.18 0 0 1 12 8.4v1.56l2 2h2.47l2.26 1.91"/></svg>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-1">Демонтажні роботи</h3>
+              <p class="text-accent font-display font-bold text-3xl md:text-4xl mt-3">від 90<span class="text-lg ml-1">₴/м²</span></p>
+              <ul class="mt-6 space-y-3 text-secondary text-sm">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Стіни, перегородки — від 100 ₴/м²
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Підлога, стяжка — від 90 ₴/м²
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Плитка, штукатурка — від 120 ₴/м²
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Ванна кімната під ключ — від 5 000 ₴
+                </li>
+              </ul>
+            </div>
+            <div class="px-6 md:px-8 pb-6 md:pb-8">
+              <a href="tel:+380500290952" class="flex items-center justify-center gap-2 w-full bg-accent hover:bg-accent-bright text-surface font-semibold py-3 rounded-full transition-colors text-sm">
+                Дізнатись точну вартість
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Price card: Комплексні -->
+          <div class="bg-card rounded-2xl border border-border overflow-hidden card-hover reveal" style="--delay:2">
+            <div class="p-6 md:p-8">
+              <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center text-accent mb-5">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.9 5.8a2 2 0 0 1-1.3 1.3L3 12l5.8 1.9a2 2 0 0 1 1.3 1.3L12 21l1.9-5.8a2 2 0 0 1 1.3-1.3L21 12l-5.8-1.9a2 2 0 0 1-1.3-1.3L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg>
+              </div>
+              <h3 class="font-display font-bold text-xl mb-1">Комплексні послуги</h3>
+              <p class="text-accent font-display font-bold text-3xl md:text-4xl mt-3">від 5 000<span class="text-lg ml-1">₴</span></p>
+              <ul class="mt-6 space-y-3 text-secondary text-sm">
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Демонтаж + вивіз сміття
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Прибирання території після робіт
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Переїзд з вивезенням старих речей
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="w-4 h-4 text-accent shrink-0 mt-0.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="m9 11 3 3L22 4"/></svg>
+                  Знижка від 10% на комплекс
+                </li>
+              </ul>
+            </div>
+            <div class="px-6 md:px-8 pb-6 md:pb-8">
+              <a href="tel:+380500290952" class="flex items-center justify-center gap-2 w-full border border-border hover:border-accent/40 text-primary font-semibold py-3 rounded-full transition-colors text-sm">
+                Дізнатись точну вартість
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALLERY ============ -->
+    <section id="gallery" class="py-20 md:py-28 lg:py-32 bg-card/50 border-y border-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <span class="text-accent font-display text-xs font-medium uppercase tracking-widest reveal">Наші роботи</span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mt-3 reveal" style="--delay:1">Галерея</h2>
+          <p class="text-secondary text-lg mt-4 max-w-xl mx-auto reveal" style="--delay:2">Реальні фото з наших об'єктів</p>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+          <div class="aspect-[4/3] photo-placeholder rounded-xl overflow-hidden flex items-center justify-center reveal-scale" style="--delay:0">
+            <div class="text-center text-dim">
+              <svg class="w-10 h-10 mx-auto mb-2 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              <span class="text-xs opacity-40">Фото 1</span>
+            </div>
+          </div>
+          <div class="aspect-[4/3] photo-placeholder rounded-xl overflow-hidden flex items-center justify-center reveal-scale" style="--delay:1">
+            <div class="text-center text-dim">
+              <svg class="w-10 h-10 mx-auto mb-2 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              <span class="text-xs opacity-40">Фото 2</span>
+            </div>
+          </div>
+          <div class="aspect-[4/3] photo-placeholder rounded-xl overflow-hidden flex items-center justify-center reveal-scale" style="--delay:2">
+            <div class="text-center text-dim">
+              <svg class="w-10 h-10 mx-auto mb-2 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              <span class="text-xs opacity-40">Фото 3</span>
+            </div>
+          </div>
+          <div class="aspect-[4/3] photo-placeholder rounded-xl overflow-hidden flex items-center justify-center reveal-scale" style="--delay:3">
+            <div class="text-center text-dim">
+              <svg class="w-10 h-10 mx-auto mb-2 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              <span class="text-xs opacity-40">Фото 4</span>
+            </div>
+          </div>
+          <div class="aspect-[4/3] photo-placeholder rounded-xl overflow-hidden flex items-center justify-center md:col-span-2 reveal-scale" style="--delay:4">
+            <div class="text-center text-dim">
+              <svg class="w-10 h-10 mx-auto mb-2 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              <span class="text-xs opacity-40">Фото 5</span>
+            </div>
+          </div>
+          <div class="aspect-[4/3] photo-placeholder rounded-xl overflow-hidden flex items-center justify-center md:col-span-2 reveal-scale" style="--delay:5">
+            <div class="text-center text-dim">
+              <svg class="w-10 h-10 mx-auto mb-2 opacity-40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+              <span class="text-xs opacity-40">Фото 6</span>
+            </div>
+          </div>
+        </div>
+        <!-- Replace placeholder images with real .webp photos: <img src="/photos/work-1.webp" alt="..." class="w-full h-full object-cover"> -->
+      </div>
+    </section>
+
+    <!-- ============ CTA BANNER ============ -->
+    <section class="py-16 md:py-20">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-card border border-border rounded-3xl p-8 md:p-12 text-center relative overflow-hidden reveal-scale">
+          <div class="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-accent/10 rounded-full blur-[60px] pointer-events-none"></div>
+          <h2 class="font-display font-bold text-2xl md:text-3xl lg:text-4xl mb-4 relative">Потрібен демонтаж або вивіз сміття?</h2>
+          <p class="text-secondary text-base md:text-lg mb-8 max-w-lg mx-auto relative">Безкоштовно оцінимо обсяг робіт та назвемо точну ціну. Виїзд на об'єкт — за наш рахунок.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 relative">
+            <a href="https://t.me/+380500290952" target="_blank" rel="noopener" class="inline-flex items-center gap-2.5 bg-accent hover:bg-accent-bright text-surface font-bold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              Написати в Telegram
+            </a>
+            <a href="tel:+380500290952" class="inline-flex items-center gap-2.5 border border-border hover:border-accent/40 text-primary font-semibold text-sm sm:text-base px-8 py-4 rounded-full transition-all duration-300">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              Зателефонувати
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ WHY US ============ -->
+    <section id="why-us" class="py-20 md:py-28 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <span class="text-accent font-display text-xs font-medium uppercase tracking-widest reveal">Переваги</span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mt-3 reveal" style="--delay:1">Чому обирають нас</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center p-6 reveal" style="--delay:0">
+            <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg mb-2">Досвід 7+ років</h3>
+            <p class="text-secondary text-sm leading-relaxed">Знаємо всі нюанси демонтажу та вивезення. Працюємо з будь-якою складністю.</p>
+          </div>
+
+          <div class="text-center p-6 reveal" style="--delay:1">
+            <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg mb-2">Швидко</h3>
+            <p class="text-secondary text-sm leading-relaxed">Від заявки до виконання — за один день. Працюємо без вихідних з 8:00 до 21:00.</p>
+          </div>
+
+          <div class="text-center p-6 reveal" style="--delay:2">
+            <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg mb-2">Власний транспорт</h3>
+            <p class="text-secondary text-sm leading-relaxed">Від Газелі до КамАЗа. Не залежимо від підрядників — контролюємо весь процес.</p>
+          </div>
+
+          <div class="text-center p-6 reveal" style="--delay:3">
+            <div class="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center text-accent mx-auto mb-5">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+            </div>
+            <h3 class="font-display font-bold text-lg mb-2">Чисто після роботи</h3>
+            <p class="text-secondary text-sm leading-relaxed">Забираємо за собою все. Здаємо об'єкт готовим до наступного етапу ремонту.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REVIEWS ============ -->
+    <section id="reviews" class="py-20 md:py-28 lg:py-32 bg-card/50 border-y border-border">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12 md:mb-16">
+          <span class="text-accent font-display text-xs font-medium uppercase tracking-widest reveal">Відгуки</span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mt-3 reveal" style="--delay:1">Що кажуть клієнти</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-card rounded-2xl border border-border p-6 md:p-8 card-hover reveal" style="--delay:0">
+            <div class="flex gap-1 mb-4 text-accent">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="text-secondary leading-relaxed mb-6">"Хлопці швидко демонтували стару перегородку і повністю вивезли все сміття. Чисто, акуратно, без зайвого шуму. Рекомендую!"</p>
+            <div>
+              <p class="font-semibold text-sm">Андрій К.</p>
+              <p class="text-secondary text-xs">Борщагівка</p>
+            </div>
+          </div>
+
+          <div class="bg-card rounded-2xl border border-border p-6 md:p-8 card-hover reveal" style="--delay:1">
+            <div class="flex gap-1 mb-4 text-accent">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="text-secondary leading-relaxed mb-6">"Замовляли демонтаж ванної кімнати під ремонт. Все зробили за день, сміття не залишили. Дуже задоволені якістю та підходом!"</p>
+            <div>
+              <p class="font-semibold text-sm">Ірина М.</p>
+              <p class="text-secondary text-xs">Оболонь</p>
+            </div>
+          </div>
+
+          <div class="bg-card rounded-2xl border border-border p-6 md:p-8 card-hover reveal" style="--delay:2">
+            <div class="flex gap-1 mb-4 text-accent">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" stroke="none"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            </div>
+            <p class="text-secondary leading-relaxed mb-6">"Треба було вивезти купу будівельного сміття після ремонту. Приїхали вчасно, завантажили все самі. Ціна адекватна, працюють швидко."</p>
+            <div>
+              <p class="font-semibold text-sm">Максим Д.</p>
+              <p class="text-secondary text-xs">Дарниця</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTS ============ -->
+    <section id="contacts" class="py-20 md:py-28 lg:py-32">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-2xl mx-auto text-center">
+          <span class="text-accent font-display text-xs font-medium uppercase tracking-widest reveal">Зв'яжіться з нами</span>
+          <h2 class="font-display font-bold text-3xl md:text-4xl lg:text-5xl mt-3 mb-6 reveal" style="--delay:1">Контакти</h2>
+          <p class="text-secondary text-lg mb-10 reveal" style="--delay:2">Зателефонуйте або напишіть — відповімо протягом 15 хвилин</p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 reveal" style="--delay:3">
+            <a href="tel:+380500290952" class="inline-flex items-center gap-3 bg-card border border-border hover:border-accent/40 rounded-2xl px-6 py-4 transition-colors w-full sm:w-auto">
+              <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </div>
+              <div class="text-left">
+                <p class="text-xs text-secondary">Телефон</p>
+                <p class="font-semibold">+380 50 029 09 52</p>
+              </div>
+            </a>
+
+            <a href="https://t.me/+380500290952" target="_blank" rel="noopener" class="inline-flex items-center gap-3 bg-card border border-border hover:border-accent/40 rounded-2xl px-6 py-4 transition-colors w-full sm:w-auto">
+              <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+              </div>
+              <div class="text-left">
+                <p class="text-xs text-secondary">Telegram</p>
+                <p class="font-semibold">Написати</p>
+              </div>
+            </a>
+
+            <a href="viber://chat?number=%2B380500290952" class="inline-flex items-center gap-3 bg-card border border-border hover:border-accent/40 rounded-2xl px-6 py-4 transition-colors w-full sm:w-auto">
+              <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center text-accent shrink-0">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+              </div>
+              <div class="text-left">
+                <p class="text-xs text-secondary">Viber</p>
+                <p class="font-semibold">Написати</p>
+              </div>
+            </a>
+          </div>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-6 text-secondary text-sm reveal" style="--delay:4">
+            <div class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              Київ та Київська область
+            </div>
+            <div class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Пн-Нд: 08:00 — 21:00
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="border-t border-border py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <a href="#" class="font-display font-bold text-lg text-primary tracking-tight">
+        ЛОМОВОЗ<span class="text-accent">.</span>
+      </a>
+      <p class="text-secondary text-sm">&copy; 2026 ЛОМОВОЗ. Усі права захищені</p>
+    </div>
+  </footer>
+
+  <!-- ============ FAB (Floating Action Button) ============ -->
+  <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+    <div id="fab-menu" class="fab-menu hidden flex flex-col gap-2">
+      <a href="tel:+380500290952" class="flex items-center gap-3 bg-card border border-border rounded-full pl-4 pr-5 py-2.5 shadow-lg hover:border-accent/40 transition-colors group">
+        <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <span class="text-sm font-medium text-secondary group-hover:text-primary transition-colors">Телефон</span>
+      </a>
+      <a href="https://t.me/+380500290952" target="_blank" rel="noopener" class="flex items-center gap-3 bg-card border border-border rounded-full pl-4 pr-5 py-2.5 shadow-lg hover:border-accent/40 transition-colors group">
+        <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+        </div>
+        <span class="text-sm font-medium text-secondary group-hover:text-primary transition-colors">Telegram</span>
+      </a>
+      <a href="viber://chat?number=%2B380500290952" class="flex items-center gap-3 bg-card border border-border rounded-full pl-4 pr-5 py-2.5 shadow-lg hover:border-accent/40 transition-colors group">
+        <div class="w-8 h-8 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+        </div>
+        <span class="text-sm font-medium text-secondary group-hover:text-primary transition-colors">Viber</span>
+      </a>
+    </div>
+
+    <button id="fab-trigger" class="w-14 h-14 bg-accent hover:bg-accent-bright rounded-full flex items-center justify-center shadow-lg shadow-accent/20 transition-all duration-300 relative" aria-label="Зв'язатися з нами">
+      <svg class="fab-icon-phone" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:#0A0A0B"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <svg class="fab-icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" style="color:#0A0A0B;display:none"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
