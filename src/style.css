@@ -1,60 +1,65 @@
 @import "tailwindcss";
 
 /* ============================================================
-   DESIGN TOKENS — концепція "СВІТЛИЙ БЕТОН + БУРШТИНОВА ФАРБА"
-   Замінили чорну тему на бетонну палітру:
-     - світлий бетон як основний фон
-     - темний бетон для hero / CTA banner
-     - теплий бурштин (#D97706) для CTA та акцентів
+   ДИЗАЙН-ТОКЕНИ — "INDUSTRIAL GRAY + CONSTRUCTION YELLOW"
+   ────────────────────────────────────────────────────────────
+   Чисті нейтральні сірі (без теплого/коричневого касту) +
+   будівельний жовтий як акцент (як hi-vis жилети, екскаватори
+   Caterpillar, попереджувальні знаки).
+   Зчитується як "професійна будівельна компанія", не як
+   "крафтова кофейня".
    ============================================================ */
 @theme {
   --font-family-display: "Unbounded", sans-serif;
   --font-family-body: "Inter", sans-serif;
-  --font-family-brush: "Caveat", "Unbounded", sans-serif;
 
-  /* Поверхні — бетонні відтінки */
-  --color-surface: #E7E4DF;            /* основний фон сторінки — світлий бетон */
-  --color-surface-warm: #EFEBE5;       /* тепліший варіант для variation */
-  --color-card: #F4F1EC;               /* картки/блоки — найсвітліший шар */
-  --color-elevated: #FFFFFF;           /* спливаючі поверхні (drawer, FAB menu) */
-  --color-dark-concrete: #2A2723;      /* темний бетон — для hero banner */
-  --color-deep: #1F1C19;               /* ще темніший — footer accent */
-  --color-shadow: #4A4541;             /* проміжний — для тіней і контрастних блоків */
+  /* Поверхні — чистий gray scale (Zinc), без теплоти */
+  --color-surface: #FAFAFA;             /* основний фон сторінки */
+  --color-card: #FFFFFF;                /* картки — чистий білий */
+  --color-elevated: #FFFFFF;            /* спливаючі поверхні */
+  --color-muted: #F4F4F5;               /* приглушений світлий — для секцій */
+
+  /* Темні поверхні — для hero, CTA banner, footer */
+  --color-dark: #18181B;                /* основний темний (zinc-900) */
+  --color-darker: #09090B;              /* найглибший (zinc-950) */
+  --color-charcoal: #27272A;            /* проміжний темний (zinc-800) */
+  --color-graphite: #3F3F46;            /* нейтральний середній (zinc-700) */
 
   /* Текст */
-  --color-primary: #1A1816;            /* основний текст на світлому */
-  --color-secondary: #5C574F;          /* приглушений текст */
-  --color-dim: #8A857C;                /* підпис/допоміжний */
-  --color-on-dark: #FAF7F1;            /* світлий текст на темному бетоні (hero) */
-  --color-on-dark-dim: #C9C2B5;        /* приглушений на темному */
+  --color-primary: #18181B;             /* основний на світлому */
+  --color-secondary: #52525B;           /* приглушений (zinc-600) */
+  --color-dim: #A1A1AA;                 /* допоміжний (zinc-400) */
+  --color-on-dark: #FAFAFA;             /* білий на темному */
+  --color-on-dark-dim: #D4D4D8;         /* приглушений на темному (zinc-300) */
 
-  /* Акцент — теплий бурштин */
-  --color-accent: #D97706;             /* теплий бурштин */
-  --color-accent-bright: #EA580C;      /* помаранч — для hover/CTA */
-  --color-accent-deep: #B45309;        /* глибший — для pressed/active */
-  --color-accent-soft: #FED7AA;        /* пастель для акцент-фонів */
+  /* Будівельний жовтий — головний акцент */
+  --color-accent: #EAB308;              /* yellow-500, hi-vis */
+  --color-accent-bright: #FACC15;       /* yellow-400, для hover */
+  --color-accent-deep: #CA8A04;         /* yellow-600, pressed/active */
+  --color-accent-soft: #FEF3C7;         /* yellow-100, soft bg */
 
   /* Структурні */
-  --color-border: rgba(74, 69, 65, 0.12);
-  --color-border-strong: rgba(74, 69, 65, 0.22);
-  --color-border-on-dark: rgba(250, 247, 241, 0.14);
+  --color-border: rgba(24, 24, 27, 0.08);
+  --color-border-strong: rgba(24, 24, 27, 0.16);
+  --color-border-on-dark: rgba(250, 250, 250, 0.12);
 }
 
 /* ============================================================
-   ROOT / RESET
+   ROOT
    ============================================================ */
 html {
   scroll-behavior: smooth;
-  scrollbar-color: #B8B0A2 #E7E4DF;
+  scrollbar-color: #D4D4D8 #FAFAFA;
 }
 
 body {
   overflow-x: hidden;
+  background-color: var(--color-surface);
 }
 
 /* ============================================================
-   NOISE OVERLAY — субтильна зерниста текстура для "бетонного" відчуття
-   Opacity підвищена з 0.035 (для чорного) до 0.07 (для світлого).
+   NOISE OVERLAY — субтильна зерниста текстура для preventing
+   плоского/SVG-ового відчуття. Тільки на світлих фонах, легка.
    ============================================================ */
 .noise::after {
   content: "";
@@ -62,7 +67,7 @@ body {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.07;
+  opacity: 0.04;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
@@ -70,88 +75,73 @@ body {
 }
 
 /* ============================================================
-   КОНЦЕПЦІЯ "БЕТОН" — кольорові поверхні
+   HERO BACKGROUND — реальна фотографія об'єкта + темний градієнт
+   для контрасту тексту (LCP-критично, тому background-image inline)
    ============================================================ */
-
-/* Світлий бетон — фон сторінки. Subtle gradient + noise inside. */
-.concrete-light {
+.hero-bg {
   background:
-    radial-gradient(ellipse at 20% 30%, rgba(217, 119, 6, 0.04) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 70%, rgba(74, 69, 65, 0.06) 0%, transparent 55%),
-    linear-gradient(160deg, #EFEBE5 0%, #E7E4DF 50%, #DDD8CF 100%);
-}
-
-/* Темний бетон — для hero, CTA banner. Більше глибини, теплий тон. */
-.concrete-dark {
-  background:
-    radial-gradient(ellipse at 25% 30%, rgba(217, 119, 6, 0.10) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 80%, rgba(234, 88, 12, 0.06) 0%, transparent 45%),
-    linear-gradient(170deg, #2A2723 0%, #2F2B26 35%, #1F1C19 100%);
+    linear-gradient(180deg,
+      rgba(9, 9, 11, 0.55) 0%,
+      rgba(9, 9, 11, 0.62) 40%,
+      rgba(9, 9, 11, 0.85) 100%),
+    radial-gradient(ellipse at 75% 30%, rgba(234, 179, 8, 0.18) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(250, 204, 21, 0.12) 0%, transparent 50%),
+    url("/img/gallery/01.webp") center / cover no-repeat,
+    #18181B;
   position: relative;
 }
 
-/* Concrete texture overlay — використовується разом з .concrete-dark */
-.concrete-dark::before {
+/* fallback overlay щоб точно прочиталось на 4G mobile */
+.hero-bg::before {
   content: "";
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='c'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' seed='3'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 0.95  0 0 0 0 0.85  0 0 0 0.5 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23c)' opacity='0.4'/%3E%3C/svg%3E");
-  background-size: 400px 400px;
-  opacity: 0.35;
-  mix-blend-mode: overlay;
+  background: linear-gradient(180deg, transparent 0%, rgba(9, 9, 11, 0.4) 100%);
 }
 
 /* ============================================================
-   STONE-CARD — картки секцій ("кам'яні таблички")
-   Світлий бетонний шар з ледь помітною текстурою + inset highlight + м'яка тінь.
+   STONE-CARD → CLEAN-CARD: білі картки з тонкою рамкою + м'якою
+   тінню. Замість "кам'яних табличок" — професійні clean cards.
    ============================================================ */
-.stone-card {
+.clean-card {
   position: relative;
   background-color: var(--color-card);
-  background-image:
-    radial-gradient(ellipse at 50% 0%, rgba(255, 255, 255, 0.6) 0%, transparent 60%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='5'/%3E%3CfeColorMatrix values='0 0 0 0 0.3  0 0 0 0 0.27  0 0 0 0 0.24  0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23s)' opacity='0.15'/%3E%3C/svg%3E");
-  background-size: auto, 200px 200px;
-  border: 1px solid var(--color-border-strong);
+  border: 1px solid var(--color-border);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    inset 0 -1px 0 rgba(74, 69, 65, 0.05),
-    0 4px 16px rgba(74, 69, 65, 0.08),
-    0 1px 3px rgba(74, 69, 65, 0.04);
+    0 1px 2px rgba(24, 24, 27, 0.04),
+    0 4px 16px rgba(24, 24, 27, 0.06);
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.3s ease;
 }
 
-.stone-card:hover {
-  transform: translateY(-4px);
+.clean-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-border-strong);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    inset 0 -1px 0 rgba(74, 69, 65, 0.05),
-    0 12px 28px rgba(74, 69, 65, 0.14),
-    0 3px 6px rgba(74, 69, 65, 0.06);
+    0 4px 8px rgba(24, 24, 27, 0.06),
+    0 16px 32px rgba(24, 24, 27, 0.10);
 }
 
-/* Stone-card з акцентним outline (наприклад, картка "Популярне") */
-.stone-card-accent {
+/* Картка з акцентним outline (популярна ціна) */
+.clean-card-accent {
   border-color: var(--color-accent);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.8),
-    0 0 0 1px rgba(217, 119, 6, 0.15),
-    0 8px 28px rgba(217, 119, 6, 0.18),
-    0 2px 6px rgba(74, 69, 65, 0.06);
+    0 0 0 1px rgba(234, 179, 8, 0.15),
+    0 8px 28px rgba(234, 179, 8, 0.18),
+    0 2px 6px rgba(24, 24, 27, 0.04);
 }
 
-.stone-card-accent:hover {
+.clean-card-accent:hover {
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.9),
-    0 0 0 1px rgba(217, 119, 6, 0.25),
-    0 16px 36px rgba(217, 119, 6, 0.24),
-    0 4px 8px rgba(74, 69, 65, 0.08);
+    0 0 0 1px rgba(234, 179, 8, 0.30),
+    0 16px 36px rgba(234, 179, 8, 0.24),
+    0 4px 8px rgba(24, 24, 27, 0.06);
 }
 
 /* ============================================================
-   SCROLL REVEAL ANIMATIONS — без змін, працює з main.js
+   SCROLL REVEAL — без змін, працює з main.js
    ============================================================ */
 .reveal {
   opacity: 0;
@@ -181,7 +171,7 @@ body {
 
 .reveal-scale {
   opacity: 0;
-  transform: scale(0.95);
+  transform: scale(0.96);
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
   transition-delay: calc(var(--delay, 0) * 120ms);
@@ -193,21 +183,31 @@ body {
 }
 
 /* ============================================================
-   HEADER SCROLL STATE — світлий бетон з backdrop-blur
+   HEADER — на початку прозорий (на темному hero), при скролі →
+   світлий бетонний з blur
    ============================================================ */
 .header-scrolled {
-  background-color: rgba(231, 228, 223, 0.85) !important;
-  backdrop-filter: blur(12px) saturate(140%);
-  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  background-color: rgba(250, 250, 250, 0.92) !important;
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
   border-bottom-color: var(--color-border-strong) !important;
-  box-shadow: 0 2px 24px rgba(74, 69, 65, 0.06);
+  box-shadow: 0 2px 24px rgba(24, 24, 27, 0.06);
+}
+
+/* Текст у header змінює колір при скролі (в hero — білий, поза hero — темний) */
+.header-scrolled .header-text-adaptive {
+  color: var(--color-primary);
+}
+
+.header-scrolled .header-text-adaptive-secondary {
+  color: var(--color-secondary);
 }
 
 /* ============================================================
-   GRADIENT TEXT — для акцентних слів
+   GRADIENT TEXT — для акцентних слів (yellow gradient)
    ============================================================ */
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-accent-bright) 100%);
+  background: linear-gradient(135deg, var(--color-accent-bright) 0%, var(--color-accent) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -215,50 +215,39 @@ body {
 }
 
 /* ============================================================
-   BRUSH TITLE — імітація надпису кистю на бетоні
-   Підхід: handwriting-стиль шрифт Caveat (з Cyrillic) + multi-layer
-   text-shadow для імітації "паінтового" обведення + slight rotation.
+   CTA — головна жовта кнопка з drop-shadow та hover-lift
    ============================================================ */
-.brush-title {
-  font-family: var(--font-family-brush);
+.cta-yellow {
+  background-color: var(--color-accent);
+  color: var(--color-darker);
   font-weight: 700;
-  letter-spacing: -0.01em;
-  line-height: 0.95;
-  color: var(--color-on-dark);
-  /* Імітація мазка: легке зміщення для "паінтового" відчуття */
-  text-shadow:
-    0 1px 0 rgba(250, 247, 241, 0.1),
-    1px 2px 0 rgba(0, 0, 0, 0.15),
-    0 0 24px rgba(250, 247, 241, 0.08);
-  /* Subtle texture через mask — нерівні краї як у фарби */
-  -webkit-mask-image:
-    radial-gradient(ellipse at 50% 50%, #000 70%, rgba(0, 0, 0, 0.92) 92%, rgba(0, 0, 0, 0.85) 100%);
-  mask-image:
-    radial-gradient(ellipse at 50% 50%, #000 70%, rgba(0, 0, 0, 0.92) 92%, rgba(0, 0, 0, 0.85) 100%);
+  box-shadow:
+    0 4px 14px rgba(234, 179, 8, 0.35),
+    0 1px 3px rgba(24, 24, 27, 0.10);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Brush для акцентного слова всередині заголовку */
-.brush-accent {
-  font-family: var(--font-family-brush);
-  font-weight: 700;
-  color: var(--color-accent);
-  /* paint texture на акценті */
-  text-shadow:
-    0 1px 0 rgba(217, 119, 6, 0.2),
-    2px 3px 0 rgba(0, 0, 0, 0.18);
-  display: inline-block;
-  transform: rotate(-1.5deg);
+.cta-yellow:hover {
+  background-color: var(--color-accent-bright);
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 22px rgba(234, 179, 8, 0.45),
+    0 2px 6px rgba(24, 24, 27, 0.12);
+}
+
+.cta-yellow:active {
+  background-color: var(--color-accent-deep);
+  transform: translateY(0);
 }
 
 /* ============================================================
-   GLOW для акцентних карток (популярна ціна)
-   Тепла, м'яка — не різко-різка як на чорному
+   GLOW для популярної картки — м'який жовтий
    ============================================================ */
 .glow-accent {
   box-shadow:
-    0 0 32px rgba(217, 119, 6, 0.20),
-    0 0 64px rgba(217, 119, 6, 0.08),
-    0 8px 24px rgba(74, 69, 65, 0.10);
+    0 0 32px rgba(234, 179, 8, 0.20),
+    0 0 64px rgba(234, 179, 8, 0.08),
+    0 8px 24px rgba(24, 24, 27, 0.06);
 }
 
 /* ============================================================
@@ -281,10 +270,10 @@ body {
 }
 
 /* ============================================================
-   PULSE-RING на основній CTA
+   PULSE-RING на головній CTA
    ============================================================ */
 @keyframes pulse-ring {
-  0% { transform: scale(1); opacity: 0.55; }
+  0% { transform: scale(1); opacity: 0.6; }
   100% { transform: scale(1.4); opacity: 0; }
 }
 
@@ -309,20 +298,40 @@ body {
 }
 
 /* ============================================================
-   STAT DIVIDER — вертикальна лінія між статами в hero
-   На темному бетоні — світла градієнтна лінія
+   STAT DIVIDER — на темному hero: світла лінія
    ============================================================ */
 .stat-divider {
   width: 1px;
   height: 2.5rem;
   background: linear-gradient(180deg, transparent, var(--color-on-dark-dim), transparent);
-  opacity: 0.5;
+  opacity: 0.4;
+}
+
+/* Trust badge — маленький значок-чіп з galочкой */
+.trust-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  background-color: rgba(250, 250, 250, 0.08);
+  border: 1px solid rgba(250, 250, 250, 0.14);
+  color: var(--color-on-dark);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+}
+
+.trust-badge svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-accent);
+  flex-shrink: 0;
 }
 
 /* ============================================================
    GALLERY — реальні фото з hover-deepening
    ============================================================ */
-/* Masonry-friendly: image fills frame at natural aspect ratio */
 .gallery-img {
   display: block;
   width: 100%;
@@ -338,25 +347,72 @@ body {
   filter: saturate(1.15) contrast(1.05);
 }
 
-/* Frame: keeps stone texture for fallback, allows natural aspect ratio */
 .photo-frame {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(135deg, #DDD8CF 0%, #C9C2B5 50%, #B8B0A2 100%);
-  border: 1px solid var(--color-border-strong);
+    linear-gradient(135deg, #E4E4E7 0%, #D4D4D8 50%, #A1A1AA 100%);
+  border: 1px solid var(--color-border);
   border-radius: 0.75rem;
-  box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.6),
-    0 4px 12px rgba(74, 69, 65, 0.08);
-  /* мінімальна висота, якщо img.onerror прибере зображення */
+  box-shadow: 0 2px 8px rgba(24, 24, 27, 0.06);
   min-height: 4rem;
 }
 
 /* ============================================================
-   ACCESSIBILITY — prefers-reduced-motion
-   Вимикає всі transitions/transforms для користувачів з налаштуванням
-   "Reduce motion" (WCAG 2.3.3)
+   FAQ — accordion-style, semantic <details>
+   ============================================================ */
+.faq-item {
+  border-bottom: 1px solid var(--color-border-strong);
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+}
+
+.faq-summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  font-weight: 600;
+  color: var(--color-primary);
+  transition: color 0.2s ease;
+}
+
+.faq-summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-summary:hover {
+  color: var(--color-accent-deep);
+}
+
+.faq-summary::after {
+  content: "";
+  width: 1.25rem;
+  height: 1.25rem;
+  flex-shrink: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23EAB308' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-summary::after {
+  transform: rotate(180deg);
+}
+
+.faq-content {
+  padding-bottom: 1.25rem;
+  color: var(--color-secondary);
+  line-height: 1.65;
+}
+
+/* ============================================================
+   ACCESSIBILITY — prefers-reduced-motion (WCAG 2.3.3)
    ============================================================ */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -379,8 +435,8 @@ body {
     animation: none;
   }
 
-  .stone-card:hover,
-  .stone-card-accent:hover,
+  .clean-card:hover,
+  .clean-card-accent:hover,
   .gallery-img:hover {
     transform: none;
   }
