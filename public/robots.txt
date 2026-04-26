@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /img/gallery/_*
+
+Sitemap: https://lomovoz.com.ua/sitemap.xml

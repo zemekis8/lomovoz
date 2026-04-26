@@ -1,3 +1,28 @@
 node_modules
 dist
 .DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Env
+.env
+.env.*
+*.local
+
+# AI tooling — локальний контекст для Claude / агентів. Не публікуємо.
+.ai-factory/
+.claude/
+.agents/
+.mcp.json
+AGENTS.md
+skills-lock.json
+
+# Tooling output (тимчасові скрини, репорти)
+test-results/
+playwright-report/
+playwright/.cache/
+
+# User photos source (зберігаємо лише оптимізовані WebP у public/img/gallery)
+/photos-source/
