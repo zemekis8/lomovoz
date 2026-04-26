@@ -50,6 +50,11 @@
 html {
   scroll-behavior: smooth;
   scrollbar-color: #D4D4D8 #FAFAFA;
+  scroll-padding-top: 5rem; /* compensate fixed header on anchor scroll */
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
 body {
