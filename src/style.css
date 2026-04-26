@@ -13,11 +13,14 @@
   --font-family-display: "Unbounded", sans-serif;
   --font-family-body: "Inter", sans-serif;
 
-  /* Поверхні — чистий gray scale (Zinc), без теплоти */
-  --color-surface: #FAFAFA;             /* основний фон сторінки */
+  /* Поверхні — чистий gray scale (Zinc), без теплоти.
+     #F4F4F5 / #E9E9EB обрані для м'якого переходу з темного hero
+     (інакше #FAFAFA після #18181B "б'є по очам"). Cards залишаються
+     pure white щоб виділятись на gray поверхні. */
+  --color-surface: #F4F4F5;             /* основний фон сторінки (zinc-100) */
   --color-card: #FFFFFF;                /* картки — чистий білий */
   --color-elevated: #FFFFFF;            /* спливаючі поверхні */
-  --color-muted: #F4F4F5;               /* приглушений світлий — для секцій */
+  --color-muted: #E9E9EB;               /* приглушений для альтернативних секцій */
 
   /* Темні поверхні — для hero, CTA banner, footer */
   --color-dark: #18181B;                /* основний темний (zinc-900) */
@@ -88,7 +91,8 @@ body {
     linear-gradient(180deg,
       rgba(9, 9, 11, 0.55) 0%,
       rgba(9, 9, 11, 0.62) 40%,
-      rgba(9, 9, 11, 0.85) 100%),
+      rgba(9, 9, 11, 0.78) 88%,
+      rgba(24, 24, 27, 0.92) 100%),
     radial-gradient(ellipse at 75% 30%, rgba(234, 179, 8, 0.18) 0%, transparent 60%),
     radial-gradient(ellipse at 20% 80%, rgba(250, 204, 21, 0.12) 0%, transparent 50%),
     url("/img/gallery/01.webp") center / cover no-repeat,
@@ -96,13 +100,22 @@ body {
   position: relative;
 }
 
-/* fallback overlay щоб точно прочиталось на 4G mobile */
-.hero-bg::before {
+/* Soft fade-out до bg-surface на самому низу hero — згладжує перехід
+   з темного hero у світлу секцію (інакше контраст ~95% б'є по очам). */
+.hero-bg::after {
   content: "";
   position: absolute;
-  inset: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
   pointer-events: none;
-  background: linear-gradient(180deg, transparent 0%, rgba(9, 9, 11, 0.4) 100%);
+  background: linear-gradient(180deg,
+    transparent 0%,
+    rgba(244, 244, 245, 0.06) 30%,
+    rgba(244, 244, 245, 0.20) 70%,
+    rgba(244, 244, 245, 0.45) 100%);
+  z-index: 5;
 }
 
 /* ============================================================
