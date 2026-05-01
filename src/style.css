@@ -284,6 +284,102 @@ body {
 }
 
 /* ============================================================
+   CONTACT-DIALOG — нативний <dialog>, що відкривається при кліку
+   на одиничний CTA (Зателефонувати / Telegram / Viber) і пропонує
+   обрати один з двох номерів.
+   ============================================================ */
+.contact-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+  border: none;
+  padding: 0;
+  border-radius: 1.5rem;
+  background-color: var(--color-card);
+  color: var(--color-primary);
+  max-width: 92vw;
+  width: 360px;
+  max-height: 90vh;
+  box-shadow:
+    0 1px 3px rgba(24, 24, 27, 0.10),
+    0 24px 64px rgba(24, 24, 27, 0.42);
+  overflow: hidden;
+}
+
+.contact-dialog[open] {
+  animation: contact-dialog-in 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes contact-dialog-in {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.92); }
+  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+.contact-dialog::backdrop {
+  background-color: rgba(24, 24, 27, 0.72);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  animation: contact-dialog-backdrop-in 0.18s ease;
+}
+
+@keyframes contact-dialog-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.contact-dialog__option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 1rem;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+}
+
+.contact-dialog__option:hover {
+  background-color: var(--color-accent);
+  color: var(--color-darker);
+  border-color: var(--color-accent);
+}
+
+.contact-dialog__option .icon {
+  display: inline-flex;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(234, 179, 8, 0.16);
+  color: var(--color-accent-deep);
+  flex-shrink: 0;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.contact-dialog__option:hover .icon {
+  background-color: rgba(24, 24, 27, 0.12);
+  color: var(--color-darker);
+}
+
+.contact-dialog__option-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.contact-dialog__option:hover .contact-dialog__option-label {
+  color: rgba(24, 24, 27, 0.65);
+}
+
+/* ============================================================
    GLOW для популярної картки — м'який жовтий
    ============================================================ */
 .glow-accent {

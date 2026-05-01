@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFAB()
   initSmoothScroll()
   initCounters()
+  initContactChooser()
 })
 
 function initScrollReveal() {
@@ -146,6 +147,26 @@ function initCounters() {
   )
 
   counters.forEach((el) => observer.observe(el))
+}
+
+function initContactChooser() {
+  document.querySelectorAll('[data-chooser]').forEach((trigger) => {
+    trigger.addEventListener('click', (e) => {
+      const dlg = document.getElementById(`dialog-${trigger.dataset.chooser}`)
+      if (!dlg || typeof dlg.showModal !== 'function') return
+      e.preventDefault()
+      if (dlg.open) return
+      dlg.showModal()
+    })
+  })
+
+  document.querySelectorAll('dialog.contact-dialog').forEach((dlg) => {
+    dlg.addEventListener('click', (e) => {
+      if (e.target === dlg) { dlg.close(); return }
+      if (e.target.closest('[data-close]')) { dlg.close(); return }
+      if (e.target.closest('a[href]')) { dlg.close() }
+    })
+  })
 }
 
 function animateCounter(el) {
